@@ -1,0 +1,50 @@
+Turbo Assembler	 Version 2.0	    04/09/24 01:43:19	    Page 1
+factor.ASM
+
+
+
+      1	0000			     _TEXT SEGMENT BYTE	PUBLIC 'CODE'
+      2				       ASSUME CS:_TEXT
+      3				     PUBLIC _factor
+      4	0000			     _factor PROC FAR
+      5	0000  55		       push bp
+      6	0001  8B EC		       mov bp, sp
+      7	0003  8B 5E 06		       mov bx, 6[bp]
+      8	0006  B9 0001		       mov cx, 1
+      9	0009  3B D9		       cmp bx, cx
+     10	000B  74 0D		       je .FIN
+     11	000D  4B		       dec bx
+     12	000E  53		       push bx
+     13	000F  0E E8 FFED	       call _factor
+     14	0013  83 C4 02		       add sp, 2
+     15	0016  F7 66 06		       mul WORD	PTR 6[bp]
+     16	0019  CB		       ret
+     17	001A			     .FIN:
+     18	001A  B8 0001		       mov ax, 1
+     19	001D  83 EC 06		       sub sp, 6
+     20	0020			     _factor ENDP
+     21	0020			     _TEXT ENDS
+     22				     END
+Turbo Assembler	 Version 2.0	    04/09/24 01:43:19	    Page 2
+Symbol Table
+
+
+
+
+Symbol Name			  Type	 Value
+
+.FIN				  Near	 _TEXT:001A
+??date				  Text	 "04/09/24"
+??filename			  Text	 "factor  "
+??time				  Text	 "01:43:19"
+??version			  Number 0200
+@Cpu				  Text	 0101H
+@FileName			  Text	 factor
+@WordSize			  Text	 2
+@curseg				  Text	 _TEXT
+_factor				  Far	 _TEXT:0000
+
+Groups & Segments		  Bit Size Align  Combine Class
+
+_TEXT				  16  0020 Byte	  Public  CODE
+
