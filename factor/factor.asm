@@ -7,7 +7,7 @@ _factor PROC FAR
   mov bx, 6[bp]
   mov cx, 1
   cmp bx, cx
-  je .FIN
+  jle .FIN
   dec bx
   push bx
   call FAR PTR _factor
