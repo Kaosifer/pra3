@@ -9,14 +9,17 @@ _factor PROC FAR
   cmp bx, cx
   je .FIN
   dec bx
-  push bx 
-  call _factor
-  add sp, 2
-  mul WORD PTR 6[bp]
+  push bx
+  call FAR PTR _factor
+  pop bx
+  inc bx
+  mul bx
+  pop bp
   ret
 .FIN:
+  pop bp
   mov ax, 1
-  sub sp, 6
+  ret
 _factor ENDP
 _TEXT ENDS
 END
