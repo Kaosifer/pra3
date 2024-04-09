@@ -8,13 +8,12 @@ int factor(int n);
 
 main()
 {
-  int num;
-  int res;
+  unsigned int num;
+  unsigned int res;
 
   printf("Introduce un numero del 1 al 8: ");
   scanf("%d", &num);
 
-  //num = atoi(&buf);
   res = factor(num);
 
   printf("Factorial: %d\n", res);
