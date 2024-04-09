@@ -4,7 +4,7 @@
 #define STDIN_FILENO  0
 #define STDOUT_FILENO 1
 
-int factor(int n);
+unsigned int factor(unsigned int n);
 
 main()
 {
@@ -12,11 +12,11 @@ main()
   unsigned int res;
 
   printf("Introduce un numero del 1 al 8: ");
-  scanf("%d", &num);
+  scanf("%u", &num);
 
   res = factor(num);
 
-  printf("Factorial: %d\n", res);
+  printf("Factorial: %u\n", res);
 
   return 0;
 }
